@@ -1,4 +1,4 @@
-name: symbolInfoBanner
+name: symbol_info
 description: A new Flutter project.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -48,31 +48,3 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 flutter:
   uses-material-design: true
-  assets:
-    - lib/presentation/config/assets/images/
-    - lib/presentation/config/assets/images/common_icons/
-    - lib/presentation/config/assets/images/watchlist/
-    - lib/presentation/config/assets/images/related_news/
-    - lib/presentation/config/assets/images/add_funds/
-    - lib/presentation/config/assets/images/orders/
-    - lib/presentation/config/assets/images/withdraw_funds/
-    - lib/presentation/config/assets/images/login/
-    - lib/presentation/config/assets/images/products/
-    - lib/presentation/config/assets/images/alerts/
-    - lib/presentation/config/assets/images/upi_apps/
-    - lib/presentation/config/assets/images/baskets/
-    - lib/presentation/config/assets/images/portfolio/
-    - lib/presentation/config/assets/images/profile/
-    - lib/presentation/config/assets/images/settings/
-    - lib/presentation/config/assets/images/chart/
-    - lib/presentation/config/assets/images/option_chain/
-    - lib/presentation/config/assets/images/screeners/
-    - lib/presentation/config/assets/images/symbol_details/
-    - lib/presentation/config/assets/images/onboarding/
-    - lib/presentation/config/assets/images/no_internet/
-    - lib/presentation/config/assets/images/guest/
-    - lib/presentation/config/assets/images/prod_banner/
-    - lib/presentation/config/assets/images/home_popups/
-    - lib/presentation/config/assets/images/discover/
-    - lib/presentation/config/assets/images/QR_scanner/
-    - lib/presentation/config/assets/images/smart_exit/

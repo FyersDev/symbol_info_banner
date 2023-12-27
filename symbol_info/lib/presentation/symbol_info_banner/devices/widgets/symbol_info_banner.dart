@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fy_flutter_ui/fy_flutter_ui.dart';
-import 'package:symbolInfoBanner/constants/defines/images/image_constants.dart';
+import 'package:symbol_info/constants/defines/images/image_constants.dart';
 import 'package:symbol_master/cubit/icon_master_cubit.dart';
 import 'package:symbol_master/models/symbol_data_model.dart';
 
