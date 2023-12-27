@@ -1,0 +1,78 @@
+name: symbolInfoBanner
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.3 <3.0.0'
+
+dependencies:
+  firebase_core: ^2.4.1
+  firebase_messaging: ^14.2.1
+  cached_network_image: ^3.2.3
+  flutter_bloc: ^8.1.3
+  equatable: any
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  fy_flutter_ui:
+    git:
+      url: git@github.com:FyersDev/fy_flutter_ui.git
+      ref: enhancement/library-prototyping
+  flutter_fy_data_feeds:
+    git:
+      url: git@github.com:FyersDev/Flutter_FyDataFeeds.git
+      ref: 0.0.6
+  fy_flutter_service :
+    git:
+      url: git@github.com:FyersDev/fy_flutter_packages.git
+      path : packages/fy_flutter_service
+      ref : main
+  config :
+    git:
+      url: git@github.com:FyersDev/fy_flutter_packages.git
+      path : packages/config
+      ref : main
+  symbol_master:
+    git:
+      url: git@github.com:FyersDev/fy_flutter_packages.git
+      path: packages/symbol_master
+      ref: main
+  hydrated_bloc: ^9.1.3
+  hive: ^2.2.3
+  path_provider: ^2.1.1
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+flutter:
+  uses-material-design: true
+  assets:
+    - lib/presentation/config/assets/images/
+    - lib/presentation/config/assets/images/common_icons/
+    - lib/presentation/config/assets/images/watchlist/
+    - lib/presentation/config/assets/images/related_news/
+    - lib/presentation/config/assets/images/add_funds/
+    - lib/presentation/config/assets/images/orders/
+    - lib/presentation/config/assets/images/withdraw_funds/
+    - lib/presentation/config/assets/images/login/
+    - lib/presentation/config/assets/images/products/
+    - lib/presentation/config/assets/images/alerts/
+    - lib/presentation/config/assets/images/upi_apps/
+    - lib/presentation/config/assets/images/baskets/
+    - lib/presentation/config/assets/images/portfolio/
+    - lib/presentation/config/assets/images/profile/
+    - lib/presentation/config/assets/images/settings/
+    - lib/presentation/config/assets/images/chart/
+    - lib/presentation/config/assets/images/option_chain/
+    - lib/presentation/config/assets/images/screeners/
+    - lib/presentation/config/assets/images/symbol_details/
+    - lib/presentation/config/assets/images/onboarding/
+    - lib/presentation/config/assets/images/no_internet/
+    - lib/presentation/config/assets/images/guest/
+    - lib/presentation/config/assets/images/prod_banner/
+    - lib/presentation/config/assets/images/home_popups/
+    - lib/presentation/config/assets/images/discover/
+    - lib/presentation/config/assets/images/QR_scanner/
+    - lib/presentation/config/assets/images/smart_exit/
