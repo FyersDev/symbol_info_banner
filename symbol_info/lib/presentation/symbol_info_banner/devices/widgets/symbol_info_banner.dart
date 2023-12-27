@@ -34,8 +34,7 @@ class _SymbolInfoBannerState extends State<SymbolInfoBanner> {
               child: Row(
                 children: [
                   FyUi.fyImage(
-                      image: IconMasterCubit().getIconURL(
-                          iconName: "TCS", iconType: IconType.symbol),
+                      image: "https://public.fyers.in/icons/icons_nse/TCS.png",
                       height: 60,
                       width: 60),
                   const SizedBox(height: 20),
