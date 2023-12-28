@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fy_data_feeds/presentation/widgets/fy_data_feeds_builder.dart';
+import 'package:flutter_fy_data_feeds/presentation/widgets/fy_data_feeds_subscriber.dart';
 import 'package:fy_flutter_ui/fy_flutter_ui.dart';
 import 'package:symbol_info/constants/defines/images/image_constants.dart';
 import 'package:symbol_master/cubit/icon_master_cubit.dart';
@@ -15,6 +16,11 @@ class SymbolInfoBanner extends StatefulWidget {
 }
 
 class _SymbolInfoBannerState extends State<SymbolInfoBanner> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(children: [
@@ -39,6 +45,47 @@ class _SymbolInfoBannerState extends State<SymbolInfoBanner> {
                           iconName: widget.symbol!, iconType: IconType.symbol),
                       height: 60,
                       width: 60),
+                  FyDataFeedsBuilder(
+                      symbol: SymbolDataModel.fromMap({'symbol': widget.symbol})
+                          .zipInfo,
+                      child: (symbol) {
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Row(
+                              children: [
+                                FyUi.fyText(
+                                    text: widget.symbol != null
+                                        ? symbol.ltp!.toString()
+                                        : "0",
+                                    textStyle: FyTextStyle.bodyBoldBlack500),
+                                Padding(
+                                  padding: FyPaddingConstants.paddingAll6,
+                                  child: FyUi.fyImage(
+                                      image: symbol.chp > 0
+                                          ? ImageConstants.arrowUpIcon
+                                          : ImageConstants.arrowDownIcon),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                FyUi.fyText(
+                                    text: symbol.ch.toString(),
+                                    textStyle: symbol.chp > 0
+                                        ? FyTextStyle.bodyBlack400
+                                            .copyWith(color: Colors.green)
+                                        : FyTextStyle.bodyBlack400
+                                            .copyWith(color: Colors.red)),
+                              ],
+                            )
+                          ],
+                        );
+                      }),
                   const SizedBox(height: 20),
                   Flexible(
                       child: Column(
@@ -59,7 +106,8 @@ class _SymbolInfoBannerState extends State<SymbolInfoBanner> {
                           Padding(
                             padding: FyPaddingConstants.paddingAll8,
                             child: FyUi.fyText(
-                              text: "NSE",
+                              text: SymbolDataModel.fromMap(
+                                  {'symbol': widget.symbol}).zipInfo.exchange,
                               textStyle: FyTextStyle.bodyBlack400,
                             ),
                           )
@@ -80,48 +128,7 @@ class _SymbolInfoBannerState extends State<SymbolInfoBanner> {
                         ],
                       )
                     ],
-                  )),
-                  FyDataFeedsBuilder(
-                      symbol: SymbolDataModel.fromMap({'symbol': widget.symbol})
-                          .zipInfo,
-                      child: (symbol) {
-                        return Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Row(
-                              children: [
-                                FyUi.fyText(
-                                    text: widget.symbol != null
-                                        ? symbol.ltp!.toString()
-                                        : "0",
-                                    textStyle: FyTextStyle.bodyBoldBlack500),
-                                Padding(
-                                  padding: FyPaddingConstants.paddingAll6,
-                                  child: FyUi.fyImage(
-                                      image: 43.25 > 0
-                                          ? ImageConstants.arrowUpIcon
-                                          : ImageConstants.arrowDownIcon),
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                FyUi.fyText(
-                                    text: "${symbol.ch}( $symbol.chp )",
-                                    textStyle: symbol.chp > 0
-                                        ? FyTextStyle.bodyBlack400
-                                            .copyWith(color: Colors.green)
-                                        : FyTextStyle.bodyBlack400
-                                            .copyWith(color: Colors.red)),
-                              ],
-                            )
-                          ],
-                        );
-                      })
+                  ))
                 ],
               ),
             ),
