@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fy_data_feeds/presentation/widgets/fy_data_feeds_builder.dart';
 import 'package:fy_flutter_ui/fy_flutter_ui.dart';
 import 'package:symbol_info/constants/defines/images/image_constants.dart';
 import 'package:symbol_master/cubit/icon_master_cubit.dart';
@@ -80,37 +81,47 @@ class _SymbolInfoBannerState extends State<SymbolInfoBanner> {
                       )
                     ],
                   )),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Row(
-                        children: [
-                          FyUi.fyText(
-                              text: widget.symbol != null ? "43.5" : "43.25",
-                              textStyle: FyTextStyle.bodyBoldBlack500),
-                          Padding(
-                            padding: FyPaddingConstants.paddingAll6,
-                            child: FyUi.fyImage(
-                                image: 43.25 > 0
-                                    ? ImageConstants.arrowUpIcon
-                                    : ImageConstants.arrowDownIcon),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          FyUi.fyText(
-                              text: "-2.35 ( 3.23 )",
-                              textStyle: FyTextStyle.bodyBlack400
-                                  .copyWith(color: Colors.red)),
-                        ],
-                      )
-                    ],
-                  )
+                  FyDataFeedsBuilder(
+                      symbol: SymbolDataModel.fromMap({'symbol': widget.symbol})
+                          .zipInfo,
+                      child: (symbol) {
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Row(
+                              children: [
+                                FyUi.fyText(
+                                    text: widget.symbol != null
+                                        ? symbol.ltp!.toString()
+                                        : "0",
+                                    textStyle: FyTextStyle.bodyBoldBlack500),
+                                Padding(
+                                  padding: FyPaddingConstants.paddingAll6,
+                                  child: FyUi.fyImage(
+                                      image: 43.25 > 0
+                                          ? ImageConstants.arrowUpIcon
+                                          : ImageConstants.arrowDownIcon),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                FyUi.fyText(
+                                    text: "${symbol.ch}( $symbol.chp )",
+                                    textStyle: symbol.chp > 0
+                                        ? FyTextStyle.bodyBlack400
+                                            .copyWith(color: Colors.green)
+                                        : FyTextStyle.bodyBlack400
+                                            .copyWith(color: Colors.red)),
+                              ],
+                            )
+                          ],
+                        );
+                      })
                 ],
               ),
             ),
