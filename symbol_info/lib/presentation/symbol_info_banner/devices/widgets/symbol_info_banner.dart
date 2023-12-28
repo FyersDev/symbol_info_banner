@@ -89,7 +89,8 @@ class _SymbolInfoBannerState extends State<SymbolInfoBanner> {
                                   ? SymbolDataModel.fromMap(
                                           {'symbol': widget.symbol})
                                       .zipInfo
-                                      .shortName
+                                      .ltp
+                                      .toString()
                                   : "43.25",
                               textStyle: FyTextStyle.bodyBoldBlack500),
                           Padding(
