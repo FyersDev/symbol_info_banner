@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fy_flutter_ui/fy_flutter_ui.dart';
 import 'package:symbol_info/constants/defines/images/image_constants.dart';
+import 'package:symbol_master/cubit/icon_master_cubit.dart';
 import 'package:symbol_master/models/symbol_data_model.dart';
 
 class SymbolInfoBanner extends StatefulWidget {
@@ -33,7 +34,8 @@ class _SymbolInfoBannerState extends State<SymbolInfoBanner> {
               child: Row(
                 children: [
                   FyUi.fyImage(
-                      image: "https://public.fyers.in/icons/icons_nse/TCS.png",
+                      image: IconMasterCubit().getIconURL(
+                          iconName: widget.symbol!, iconType: IconType.symbol),
                       height: 60,
                       width: 60),
                   const SizedBox(height: 20),
