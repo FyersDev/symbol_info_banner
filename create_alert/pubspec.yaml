@@ -1,0 +1,50 @@
+name: create_alert
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.3 <3.0.0'
+
+dependencies:
+  firebase_core: ^2.4.1
+  firebase_messaging: ^14.2.1
+  cached_network_image: ^3.2.3
+  flutter_bloc: ^8.1.3
+  equatable: any
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  fy_flutter_ui:
+    git:
+      url: git@github.com:FyersDev/fy_flutter_ui.git
+      ref: enhancement/library-prototyping
+  flutter_fy_data_feeds:
+    git:
+      url: git@github.com:FyersDev/Flutter_FyDataFeeds.git
+      ref: 0.0.6
+  fy_flutter_service :
+    git:
+      url: git@github.com:FyersDev/fy_flutter_packages.git
+      path : packages/fy_flutter_service
+      ref : main
+  config :
+    git:
+      url: git@github.com:FyersDev/fy_flutter_packages.git
+      path : packages/config
+      ref : main
+  symbol_master:
+    git:
+      url: git@github.com:FyersDev/fy_flutter_packages.git
+      path: packages/symbol_master
+      ref: main
+  hydrated_bloc: ^9.1.3
+  hive: ^2.2.3
+  path_provider: ^2.1.1
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+flutter:
+  uses-material-design: true
