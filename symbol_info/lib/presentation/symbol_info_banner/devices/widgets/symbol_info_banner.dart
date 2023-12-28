@@ -72,7 +72,8 @@ class _SymbolInfoBannerState extends State<SymbolInfoBanner> {
                         children: [
                           Expanded(
                               child: FyUi.fyText(
-                            text: "Tata consultant group",
+                            text: SymbolDataModel.fromMap(
+                                {'symbol': widget.symbol}).zipInfo.details,
                             textStyle: FyTextStyle.tinyBodyBoldBlack400,
                           ))
                         ],
