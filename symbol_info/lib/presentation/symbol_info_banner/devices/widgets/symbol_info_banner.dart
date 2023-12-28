@@ -57,8 +57,11 @@ class _SymbolInfoBannerState extends State<SymbolInfoBanner> {
                               children: [
                                 FyUi.fyText(
                                     text: widget.symbol != null
-                                        ? symbol.ltp!.toString()
-                                        : "0",
+                                        ? SymbolDataModel.fromMap(
+                                                {'symbol': widget.symbol})
+                                            .zipInfo
+                                            .shortName
+                                        : "",
                                     textStyle: FyTextStyle.bodyBoldBlack500),
                                 Padding(
                                   padding: FyPaddingConstants.paddingAll6,
