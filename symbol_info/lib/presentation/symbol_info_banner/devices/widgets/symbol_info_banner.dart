@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fy_flutter_ui/fy_flutter_ui.dart';
 import 'package:symbol_info/constants/defines/images/image_constants.dart';
-import 'package:symbol_master/cubit/icon_master_cubit.dart';
 import 'package:symbol_master/models/symbol_data_model.dart';
 
 class SymbolInfoBanner extends StatefulWidget {
-  final SymbolDataModel? symbol;
+  final String? symbol;
   final String comingFrom;
   const SymbolInfoBanner({super.key, this.symbol, required this.comingFrom});
 
@@ -48,7 +47,10 @@ class _SymbolInfoBannerState extends State<SymbolInfoBanner> {
                           Flexible(
                               child: FyUi.fyText(
                                   text: widget.symbol != null
-                                      ? widget.symbol!.zipInfo.shortName
+                                      ? SymbolDataModel.fromMap(
+                                              {'symbol': widget.symbol})
+                                          .zipInfo
+                                          .shortName
                                       : "TCS-EQ",
                                   textStyle: FyTextStyle.h2Black500)),
                           Padding(
@@ -68,7 +70,8 @@ class _SymbolInfoBannerState extends State<SymbolInfoBanner> {
                         children: [
                           Expanded(
                               child: FyUi.fyText(
-                            text: "Tata consultancy Ltd.",
+                            text: SymbolDataModel.fromMap(
+                                {'symbol': widget.symbol}).zipInfo.details,
                             textStyle: FyTextStyle.tinyBodyBoldBlack400,
                           ))
                         ],
@@ -83,7 +86,10 @@ class _SymbolInfoBannerState extends State<SymbolInfoBanner> {
                         children: [
                           FyUi.fyText(
                               text: widget.symbol != null
-                                  ? widget.symbol!.zipInfo.shortName
+                                  ? SymbolDataModel.fromMap(
+                                          {'symbol': widget.symbol})
+                                      .zipInfo
+                                      .shortName
                                   : "43.25",
                               textStyle: FyTextStyle.bodyBoldBlack500),
                           Padding(
