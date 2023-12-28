@@ -1,7 +1,5 @@
 import 'package:create_alert/presenation/devices/modals/dropdown_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_fy_data_feeds/logic/fy_data_feeds/bloc/fy_data_feeds_bloc.dart';
-import 'package:flutter_fy_data_feeds/logic/fy_data_feeds/functions/fy_data_feeds_helper.dart';
 import 'package:symbol_master/models/symbol_data_model.dart';
 
 class AlertsHelper {
@@ -50,18 +48,9 @@ class AlertsHelper {
   ];
 
   static void createAlert(BuildContext context, SymbolDataModel symbol) {
-    String value = '0';
-    double symbolLtp = 0;
     if (AlertsHelper.priceRadioEnabled) {
-      value = AlertsHelper.alertValueController.text;
     } else {
-      try {
-        symbolLtp = FyDataFeedsBloc().getSymbolData(symbol.zipInfo).ltp;
-      } catch (err) {}
-      value = (symbolLtp +
-              ((double.parse(AlertsHelper.alertValueController.text) / 100) *
-                  symbolLtp))
-          .toStringAsFixed(2);
+      try {} catch (err) {}
     }
 
     // BlocProvider.of<AlertsCubit>(context).createAlert(
